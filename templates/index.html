@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro e Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script defer src="{{ url_for('static', filename='scripts.js') }}"></script>
+</head>
+<body>
+    <div class="nav">
+        <button id="btnCadastro">Cadastro</button>
+        <button id="btnLogin">Login</button>
+    </div>
+    <div class="form-container">
+        <div id="cadastro-form-container">
+            <h1>CADASTRO</h1>
+            <form id="cadastro-form">
+                <div class="input-container">
+                    <input type="text" id="nome" name="nome" required>
+                    <label for="nome">Nome Completo</label>
+                </div>
+                <div class="input-container">
+                    <input type="email" id="email" name="email" required>
+                    <label for="email">Email</label>
+                </div>
+                <div class="input-container">
+                    <input type="password" id="senha" name="senha" required>
+                    <label for="senha">Senha</label>
+                </div>
+                <div class="input-container remember-container">
+                    <input type="checkbox" id="lembrar-senha" name="lembrar-senha">
+                    <label for="lembrar-senha">Lembrar senha?</label>
+                </div>
+                <button type="submit">Cadastrar</button>
+            </form>
+        </div>
+        <div id="login-form-container" style="display: none;">
+            <h1>LOGIN</h1>
+            <form id="login-form">
+                <div class="input-container">
+                    <input type="email" id="login-email" name="email" required>
+                    <label for="login-email">Email</label>
+                </div>
+                <div class="input-container">
+                    <input type="password" id="login-senha" name="senha" required>
+                    <label for="login-senha">Senha</label>
+                </div>
+                <button type="submit">Entrar</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
