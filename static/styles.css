@@ -1,0 +1,106 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #3e3629; /* Cor de fundo da página */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+}
+
+.logo img {
+    max-width: 370px; /* Tamanho do logotipo */
+    margin-bottom: 30px;
+}
+
+.form-container {
+    background-color: #d2b48c; /* Cor de fundo do formulário */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px; /* Largura do formulário */
+    margin: auto;
+    border: 2px solid #3e3629; /* Borda do formulário */
+}
+
+h1 {
+    font-size: 24px; /* Tamanho da fonte do título */
+    margin-bottom: 20px;
+    color: #3e3629; /* Cor da fonte do título */
+}
+
+.input-container {
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.input-container input {
+    width: 90%;
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid #3e3629; /* Cor da borda inferior do campo de entrada */
+    background-color: #FFEBC4; /* Cor de fundo dos campos de entrada */
+    border-radius: 5px;
+    outline: none;
+    color: #3e3629; /* Cor da fonte dos campos de entrada */
+}
+
+.input-container label {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    pointer-events: none;
+    transition: 0.2s;
+    color: #3e3629; /* Cor da fonte do rótulo */
+}
+
+.input-container input:focus ~ label,
+.input-container input:not(:placeholder-shown) ~ label {
+    top: -15px;
+    left: 12px;
+    font-size: 12px;
+    color: #3e3629; /* Cor da fonte do rótulo ao focar */
+}
+
+.remember-container {
+    display: flex;
+    align-items: center;
+}
+
+.remember-container input {
+    margin-right: 270px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #3e3629; /* Cor de fundo do botão */
+    color: #fff; /* Cor da fonte do botão */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #2c2b28; /* Cor de fundo do botão ao passar o mouse */
+}
+
+.message {
+    margin-top: 15px;
+    color: #3e3629; /* Cor da fonte da mensagem */
+}
+
+.message a {
+    color: #3e3629; /* Cor da fonte do link */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.message a:hover {
+    text-decoration: underline;
+}

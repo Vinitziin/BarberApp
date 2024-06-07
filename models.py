@@ -40,14 +40,14 @@ class Funcionario(Base):
 
 class Servico(Base):
     __tablename__ = 'servicos'
-    id_servico = Column(integer, primary_key=True, autoincrement=True)
+    id_servico = Column(Integer, primary_key=True, autoincrement=True)
     descricao = Column(String(255), nullable=False)
     preco = Column(DECIMAL(10, 2), nullable=False)
     durucao = Column(Time, nullable=False)
 
 class Agendamento(Base):
     __tablename__ = "agendamentos"
-    id_agendamento = Column(integer, primary_key=True, autoincrement=True)
+    id_agendamento = Column(Integer, primary_key=True, autoincrement=True)
     id_funcionario = Column(Integer, ForeignKey('funcionarios.id_funcionario'))
     id_usuario = Column(Integer, ForeignKey("usuarios.id_usuario"))
     id_servico = Column(Integer, ForeignKey("servicos.id_servico"))
