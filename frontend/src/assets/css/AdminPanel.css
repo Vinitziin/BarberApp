@@ -1,0 +1,139 @@
+.admin-container {
+    font-family: 'Arial', sans-serif;
+    background-color: #4e453e; /* Cor de fundo */
+    color: #fff;
+  }
+  
+  .admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #333;
+  }
+  
+  .admin-logo {
+    width: 100px;
+  }
+  
+  .admin-nav ul {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+  }
+  
+  .admin-nav ul li a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .admin-content {
+    padding: 20px;
+  }
+  
+  .admin-content h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 32px;
+    color: #fff;
+  }
+  
+  .admin-sections {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  
+  .admin-section {
+    background-color: #6b5e50;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    flex: 1;
+    min-width: 250px;
+    text-align: center;
+  }
+  
+  .admin-section h2 {
+    color: #e2c893;
+    margin-bottom: 10px;
+  }
+  
+  .admin-section p {
+    color: #fff;
+    margin-bottom: 20px;
+  }
+  
+  .admin-section button {
+    background-color: #e2c893;
+    color: #333;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .admin-section button:hover {
+    background-color: #d1b67d;
+  }
+
+  .main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #333;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 50px;
+  height: auto;
+}
+
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.main-nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.social-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.social-icons img {
+  width: 24px;
+  height: 24px;
+}
+
+.auth-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.login-button, .signup-button {
+  background-color: #e2c893;
+  color: #333;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.login-button:hover, .signup-button:hover {
+  background-color: #d1b67d;
+}

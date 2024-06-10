@@ -1,0 +1,171 @@
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #4e453e; /* Cor de fundo */
+  }
+  
+  .login-logo img {
+    width: 150px; /* Ajuste o tamanho do logo conforme necessário */
+    margin-bottom: 20px;
+  }
+  
+  .login-form {
+    background-color: #b0a18c; /* Cor de fundo do formulário */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 300px; /* Largura do formulário */
+  }
+  
+  .login-form h2 {
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    display: block;
+    color: #333;
+    margin-bottom: 5px;
+  }
+  
+  .form-input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  
+  .form-check {
+    display: flex;
+    align-items: center;
+  }
+  
+  .form-check-input {
+    margin-right: 10px;
+  }.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #343028; /* Cor de fundo */
+  }
+  
+  .login-logo img {
+    width: 300px; /* Ajuste o tamanho do logo conforme necessário */
+    margin-bottom: 20px;
+  }
+  
+  .login-form {
+    background-color: #91856F; /* Cor de fundo do formulário */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 300px; /* Largura do formulário */
+  }
+  
+  .login-form h2 {
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    display: block;
+    color: #333;
+    margin-bottom: 5px;
+  }
+  
+  .form-input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  
+  .form-check {
+    display: flex;
+    align-items: center;
+  }
+  
+  .form-check-input {
+    margin-right: 10px;
+  }
+  
+  .form-check-label {
+    color: #333;
+  }
+  
+  .btn-login {
+    background-color: #e2c893; /* Cor do botão */
+    color: #333;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .btn-login:hover {
+    background-color: #d1b67d; /* Cor do botão ao passar o mouse */
+  }
+  
+  .signup-link {
+    margin-top: 15px;
+    color: #333;
+  }
+  
+  .signup-link a {
+    color: #000; /* Cor do link */
+    text-decoration: none;
+  }
+  
+  .signup-link a:hover {
+    text-decoration: underline;
+  }
+  
+  
+  .form-check-label {
+    color: #333;
+  }
+  
+  .btn-login {
+    background-color: #e2c893; /* Cor do botão */
+    color: #333;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .btn-login:hover {
+    background-color: #d1b67d; /* Cor do botão ao passar o mouse */
+  }
+  
+  .signup-link {
+    margin-top: 15px;
+    color: #333;
+  }
+  
+  .signup-link a {
+    color: #000; /* Cor do link */
+    text-decoration: none;
+  }
+  
+  .signup-link a:hover {
+    text-decoration: underline;
+  }
+  
