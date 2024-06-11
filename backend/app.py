@@ -9,8 +9,10 @@ from routes.agendamento_routes import agendamento_bp
 from auth.auth_routes import auth_bp
 from routes.admin_routes import admin_bp
 from mail_extension import mail
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 app.config.from_object(Config)
 
 db.init_app(app)
@@ -23,6 +25,7 @@ app.register_blueprint(servico_bp, url_prefix='/api')
 app.register_blueprint(agendamento_bp, url_prefix='/api')
 app.register_blueprint(auth_bp, url_prefix='/api/auth')
 app.register_blueprint(admin_bp, url_prefix='/api')
+
 
 @app.route('/')
 def home():

@@ -62,7 +62,9 @@ function Main() {
               <p>
                 Acreditamos que um corte bem feito faz toda a diferença. Por isso, nossos barbeiros são selecionados pelo pique e pela dedicação a atender cada cliente de forma única, ligada nas suas necessidades e desejos.
               </p>
-              <button className="about-cta">AGENTE AQUI</button>
+              <Link to="/agendamento">
+                <button className="about-cta">AGENTE AQUI</button>
+              </Link>
             </div>
             <div className="about-image">
               <img src={aboutImage} alt="Barbearia Laguna" />

@@ -1,0 +1,72 @@
+body {
+  background-color: #343028;
+  color: #f8f8f8;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.servicos-container {
+  margin: 20px;
+  color: #f8f8f8;
+  background-color: #343028;
+}
+
+.servicos-container h2 {
+  color: #e3c186;
+}
+
+.servicos-container form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.servicos-container form input,
+.servicos-container form button {
+  margin: 5px 0;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #e3c186;
+  background-color: #443a2f;
+  color: #e3c186;
+}
+
+.servicos-container form button {
+  background-color: #e3c186;
+  color: #343028;
+  cursor: pointer;
+}
+
+.servicos-container form button:hover {
+  background-color: #d1b075;
+}
+
+.servicos-container ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.servicos-container ul li {
+  background-color: #443a2f;
+  border: 1px solid #e3c186;
+  padding: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #f8f8f8;
+}
+
+.servicos-container ul li button {
+  margin-left: 10px;
+  padding: 5px 10px;
+  font-size: 14px;
+  background-color: #e3c186;
+  color: #343028;
+  border: 1px solid #e3c186;
+  cursor: pointer;
+}
+
+.servicos-container ul li button:hover {
+  background-color: #d1b075;
+}

@@ -1,19 +1,34 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { login } from '../api';
-import '../assets/css/Login.css'; // Importando o arquivo CSS
-import logo from '../assets/images/logo.png'; // Importando a logo diretamente
+import '../assets/css/Login.css';
+import logo from '../assets/images/logo.png';
 
 function Login({ onLogin }) {
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [senha, setSenha] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const token = await login(email, password);
+      const token = await login(email, senha);
+      console.log('Login successful, token:', token);
+
+      const userRole = JSON.parse(atob(token.split('.')[1])).role;
+      localStorage.setItem('token', token);
+      localStorage.setItem('role', userRole);
+
       onLogin(token);
+
+      if (userRole === 'admin') {
+        navigate('/admin');
+      } else {
+        navigate('/');
+      }
     } catch (error) {
       console.error('Login failed:', error);
+      alert("Credenciais inválidas!");
     }
   };
 
@@ -38,8 +53,8 @@ function Login({ onLogin }) {
           <label>Senha:</label>
           <input
             type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            value={senha}
+            onChange={(e) => setSenha(e.target.value)}
             className="form-input"
             placeholder="Senha"
           />

@@ -1,43 +1,43 @@
+/* Usuarios.css */
 .usuarios-container {
-    background-color: #343028;
-    padding: 20px;
-    border-radius: 8px;
-    color: #e2c893;
-    max-width: 800px;
-    margin: 50px auto;
+  padding: 20px;
+  background-color: #343028; /* Fundo da página */
+  color: #f4f4f4; /* Cor do texto */
 }
 
-.usuarios-container h2 {
-    color: #e2c893;
-    text-align: center;
-    margin-bottom: 20px;
+.usuarios-container h1 {
+  text-align: center;
+  color: #e0c385; /* Cor do título */
+  margin-bottom: 20px;
 }
 
-.usuarios-container table {
-    width: 100%;
-    border-collapse: collapse;
+.usuarios-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 18px;
+  text-align: left;
 }
 
-.usuarios-container th,
-.usuarios-container td {
-    border: 1px solid #6b5e50;
-    padding: 10px;
-    text-align: left;
-    color: #e2c893;
+.usuarios-table th, .usuarios-table td {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
 }
 
-.usuarios-container th {
-    background-color: #444;
+.usuarios-table th {
+  background-color: #6b5e50; /* Cor do cabeçalho da tabela */
+  color: #e2c893; /* Cor do texto do cabeçalho */
 }
 
-.usuarios-container button {
-    background-color: #e2c893;
-    color: #333;
-    padding: 5px 10px;
-    border: none;
-    cursor: pointer;
+.usuarios-table tr:nth-child(even) {
+  background-color: #4f4a3d; /* Cor das linhas pares */
 }
 
-.usuarios-container button:hover {
-    background-color: #d2b573;
+.usuarios-table tr:hover {
+  background-color: #57524b; /* Cor das linhas ao passar o mouse */
+}
+
+.usuarios-table td {
+  background-color: #3e3830; /* Cor das células */
+  color: #e2c893; /* Cor do texto das células */
 }

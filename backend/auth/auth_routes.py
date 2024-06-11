@@ -24,7 +24,10 @@ def token_required(f):
 @auth_bp.route('/register', methods=['POST'])
 def register():
     data = request.get_json()
-    hashed_password = generate_password_hash(data['senha'], method='sha256')
+    if not data or 'nome' not in data or 'email' not in data or 'senha' not in data or 'role' not in data:
+        return jsonify({"message": "Dados incompletos!"}), 400
+    
+    hashed_password = generate_password_hash(data['senha'], method='pbkdf2:sha256')
     new_user = Usuario(nome=data['nome'], email=data['email'], senha=hashed_password, role=data['role'])
     db.session.add(new_user)
     db.session.commit()
@@ -33,10 +36,13 @@ def register():
 @auth_bp.route('/login', methods=['POST'])
 def login():
     data = request.get_json()
+    if not data or 'email' not in data or 'senha' not in data:
+        return jsonify({"message": "Dados incompletos!"}), 400
+
     user = Usuario.query.filter_by(email=data['email']).first()
     if not user or not check_password_hash(user.senha, data['senha']):
         return jsonify({"message": "Credenciais inválidas!"}), 401
-    token = jwt.encode({'id': user.id_usuario, 'exp': datetime.datetime.utcnow() + datetime.timedelta(hours=24)}, "secret", algorithm="HS256")
+    token = jwt.encode({'id': user.id_usuario, 'role': user.role, 'exp': datetime.datetime.utcnow() + datetime.timedelta(hours=24)}, "secret", algorithm="HS256")
     return jsonify({'token': token})
 
 @auth_bp.route('/me', methods=['GET'])

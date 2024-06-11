@@ -1,0 +1,10 @@
+mudança:
+
+- garantir que o lembrar senha funcione
+- mudar formate de data e dinheiro no gerenciador de serviços
+-ajustar design da tela de agendamento
+- solicitar login ou verificar login ao agendar
+- ativar funcionalidade para envio de email após o agendamento
+-ao clicar na logo da barbearia voltar para a tela inicial
+- cria sessão de configurações para usuario e admin
+- adicionar permissões aos funcionários

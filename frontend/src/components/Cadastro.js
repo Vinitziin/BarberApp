@@ -1,18 +1,21 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Alteração de useHistory para useNavigate
 import { register } from '../api';
-import '../assets/css/Cadastro.css'; // Importando o arquivo CSS
-import logo from '../assets/images/logo.png'; // Importando a logo diretamente
+import '../assets/css/Cadastro.css';
+import logo from '../assets/images/logo.png';
 
 function Cadastro() {
   const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
+  const navigate = useNavigate(); // Inicializar useNavigate
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const response = await register(nome, email, senha);
       console.log(response);
+      navigate('/login'); // Redirecionar para a tela de login após o cadastro
     } catch (error) {
       console.error('Registration failed:', error);
     }

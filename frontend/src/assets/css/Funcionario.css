@@ -1,0 +1,52 @@
+.funcionario-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #343028; /* Cor de fundo */
+  color: #FFFF; /* Cor do texto */
+  border-radius: 10px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.form-group input, .form-group button {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #FFEBC4;
+  background-color: #3E3A35; /* Cor do fundo do input e do botão */
+  color: #FFD700; /* Cor do texto */
+}
+
+.form-group button {
+  background-color: #FFEBC4; /* Cor de fundo do botão */
+  color: #343028; /* Cor do texto do botão */
+}
+
+.funcionario-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.funcionario-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #3E3A35; /* Cor de fundo dos itens da lista */
+  color: #FFEBC4; /* Cor do texto */
+}
+
+.funcionario-item button {
+  margin-left: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+  background-color: #FFEBC4; /* Cor de fundo do botão */
+  color: #343028; /* Cor do texto do botão */
+}

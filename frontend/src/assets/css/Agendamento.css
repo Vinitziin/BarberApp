@@ -1,85 +1,60 @@
 .agendamento-container {
-    background-color: #3d3630;
+    background-color: #343028;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    color: #e2c893;
-    max-width: 600px;
-    margin: 50px auto;
+    width: 400px;
+    margin: 0 auto;
+    color: #fff;
+  }
+  
+  .agendamento-container h2 {
     text-align: center;
-}
-
-.agendamento-container h2 {
-    text-align: center;
-    color: #e2c893;
-    margin-bottom: 20px;
-}
-
-.agendamento-container label {
-    display: block;
-    margin-top: 15px;
-    color: #e2c893;
-    text-align: left;
-}
-
-.agendamento-container input,
-.agendamento-container select,
-.react-datepicker-wrapper,
-.react-time-picker {
-    width: 90%;
-    padding: 10px;
+    color: #d4af65;
+  }
+  
+  .agendamento-container form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .agendamento-container label {
+    margin-top: 10px;
+    color: #d4af65;
+  }
+  
+  .agendamento-container select,
+  .agendamento-container input[type="submit"],
+  .react-datetime-picker {
     margin-top: 5px;
-    border: 1px solid #6b5e50;
+    padding: 10px;
+    border: none;
     border-radius: 4px;
-    background-color: #FFEBC4;
-    color: #333;
-}
-
-.agendamento-container input[type="submit"] {
-    background-color: #e2c893;
-    color: #333;
+    background-color: #5c5242; /* Background color to match the site palette */
+    color: #fff;
+  }
+  
+  .agendamento-container input[type="submit"] {
+    background-color: #d4af65;
+    color: #343028;
     cursor: pointer;
     margin-top: 20px;
-    border: none;
-}
-
-.agendamento-container input[type="submit"]:hover {
-    background-color: #d1b67d;
-}
-
-.agendamento-container .react-datepicker-wrapper input,
-.agendamento-container .react-time-picker input {
-    width: calc(100% - 20px);
-    padding: 10px;
-    border: 1px solid #6b5e50;
+  }
+  
+  /* Additional styles for DateTimePicker */
+  .react-datetime-picker__wrapper {
+    background-color: #5c5242;
+    color: #fff;
     border-radius: 4px;
-    background-color: #FFEBC4;
-    color: #333;
-}
-
-.react-time-picker__wrapper {
-    display: flex;
-    align-items: center;
-    background-color: #f5f5f5;
-    border: 1px solid #6b5e50;
-    border-radius: 4px;
-    padding: 10px;
-}
-
-.react-time-picker__inputGroup {
-    display: flex;
-    align-items: center;
-}
-
-.react-time-picker__inputGroup__input {
-    width: 40px;
-    height: 30px;
-    text-align: center;
+  }
+  
+  .react-datetime-picker__inputGroup__input {
+    background-color: #5c5242;
+    color: #fff;
     border: none;
-    background-color: #f5f5f5;
-    color: #333;
-}
-
-.react-time-picker__inputGroup__divider {
-    color: #333;
-}
+  }
+  
+  .react-datetime-picker__clear-button,
+  .react-datetime-picker__calendar-button {
+    color: #fff;
+  }
+  
