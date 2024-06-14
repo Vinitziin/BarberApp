@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { fetchFuncionarios, addFuncionario, updateFuncionario, deleteFuncionario } from '../api';
+import { getFuncionarios, addFuncionario, updateFuncionario, deleteFuncionario } from '../api';
 import '../assets/css/Funcionario.css'; // Certifique-se de criar este arquivo CSS e ajustá-lo conforme necessário
 
 const Funcionario = () => {
@@ -9,30 +9,30 @@ const Funcionario = () => {
   const token = localStorage.getItem('token');
 
   useEffect(() => {
-    const getFuncionarios = async () => {
-      const data = await fetchFuncionarios(token);
+    const fetchFuncionarios = async () => {
+      const data = await getFuncionarios(token);
       setFuncionarios(data);
     };
-    getFuncionarios();
+    fetchFuncionarios();
   }, [token]);
 
   const handleAdd = async () => {
     await addFuncionario(newFuncionario, token);
-    const data = await fetchFuncionarios(token);
+    const data = await getFuncionarios(token);
     setFuncionarios(data);
     setNewFuncionario({ id_usuario: '', contato: '', cargo: '' });
   };
 
   const handleUpdate = async (id) => {
     await updateFuncionario(id, editFuncionario, token);
-    const data = await fetchFuncionarios(token);
+    const data = await getFuncionarios(token);
     setFuncionarios(data);
     setEditFuncionario(null);
   };
 
   const handleDelete = async (id) => {
     await deleteFuncionario(id, token);
-    const data = await fetchFuncionarios(token);
+    const data = await getFuncionarios(token);
     setFuncionarios(data);
   };
 

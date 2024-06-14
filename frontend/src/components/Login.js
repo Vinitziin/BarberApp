@@ -1,26 +1,38 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { login } from '../api';
+import { useAuth } from '../contexts/AuthContext';
 import '../assets/css/Login.css';
 import logo from '../assets/images/logo.png';
 
-function Login({ onLogin }) {
+function Login() {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
+  const [rememberMe, setRememberMe] = useState(false);
+  const { login: authLogin } = useAuth();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const rememberedEmail = localStorage.getItem('rememberMe');
+    if (rememberedEmail) {
+      setEmail(rememberedEmail);
+      setRememberMe(true);
+    }
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const token = await login(email, senha);
-      console.log('Login successful, token:', token);
+      authLogin(token);
+
+      if (rememberMe) {
+        localStorage.setItem('rememberMe', email);
+      } else {
+        localStorage.removeItem('rememberMe');
+      }
 
       const userRole = JSON.parse(atob(token.split('.')[1])).role;
-      localStorage.setItem('token', token);
-      localStorage.setItem('role', userRole);
-
-      onLogin(token);
-
       if (userRole === 'admin') {
         navigate('/admin');
       } else {
@@ -28,7 +40,7 @@ function Login({ onLogin }) {
       }
     } catch (error) {
       console.error('Login failed:', error);
-      alert("Credenciais inválidas!");
+      alert('Credenciais inválidas!');
     }
   };
 
@@ -60,7 +72,13 @@ function Login({ onLogin }) {
           />
         </div>
         <div className="form-group form-check">
-          <input type="checkbox" className="form-check-input" id="rememberMe" />
+          <input
+            type="checkbox"
+            className="form-check-input"
+            id="rememberMe"
+            checked={rememberMe}
+            onChange={(e) => setRememberMe(e.target.checked)}
+          />
           <label className="form-check-label" htmlFor="rememberMe">
             Lembrar senha?
           </label>

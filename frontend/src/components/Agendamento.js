@@ -1,82 +1,92 @@
 import React, { useState, useEffect } from 'react';
-import DateTimePicker from 'react-datetime-picker';
-import 'react-datetime-picker/dist/DateTimePicker.css';
-import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import { getServicos, getFuncionarios, createAgendamento } from '../api';
 import '../assets/css/Agendamento.css';
 
 function Agendamento() {
-  const [date, setDate] = useState(new Date());
-  const [servico, setServico] = useState('');
-  const [profissional, setProfissional] = useState('');
-  const [mensagem, setMensagem] = useState('');
   const [servicos, setServicos] = useState([]);
-  const [profissionais, setProfissionais] = useState([]);
+  const [funcionarios, setFuncionarios] = useState([]);
+  const [selectedServico, setSelectedServico] = useState('');
+  const [selectedFuncionario, setSelectedFuncionario] = useState('');
+  const [data, setData] = useState('');
+  const [hora, setHora] = useState('');
+
+  const navigate = useNavigate();
 
   useEffect(() => {
-    // Fetch services from the backend
-    axios.get('http://localhost:5000/api/servicos')
-      .then(response => setServicos(response.data))
-      .catch(error => console.error('Error fetching services:', error));
-
-    // Fetch professionals from the backend
-    axios.get('http://localhost:5000/api/funcionarios')
-      .then(response => {
-        console.log(response.data); // Adicione este log para verificar os dados
-        setProfissionais(response.data);
-      })
-      .catch(error => console.error('Error fetching professionals:', error));
+    async function fetchData() {
+      const token = localStorage.getItem('token');
+      const servicos = await getServicos(token);
+      const funcionarios = await getFuncionarios(token);
+      setServicos(servicos);
+      setFuncionarios(funcionarios);
+    }
+    fetchData();
   }, []);
 
-  const handleDateChange = (date) => {
-    setDate(date);
-  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const token = localStorage.getItem('token');
+    const id_usuario = localStorage.getItem('user_id'); // Supondo que o ID do usuário esteja salvo no localStorage
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+    const agendamento = {
+      id_usuario,
+      id_funcionario: selectedFuncionario,
+      id_servico: selectedServico,
+      data,
+      hora
+    };
+
     try {
-      await axios.post('http://localhost:5000/api/agendamentos', {
-        servico,
-        data: date,
-        profissional,
-      });
-      setMensagem('Agendamento realizado com sucesso!');
+      const response = await createAgendamento(token, agendamento);
+      if (response.message) {
+        alert(response.message);
+        navigate('/');
+      } else {
+        alert('Erro ao criar agendamento');
+      }
     } catch (error) {
-      setMensagem('Erro ao realizar agendamento. Tente novamente.');
+      console.error('Error creating agendamento:', error);
+      alert('Erro ao criar agendamento');
     }
   };
 
   return (
     <div className="agendamento-container">
-      <h2>AGENTE AGORA</h2>
+      <h2>Agendar Serviço</h2>
       <form onSubmit={handleSubmit}>
-        <label>Serviço:</label>
-        <select value={servico} onChange={(e) => setServico(e.target.value)} required>
-          <option value="">Selecione um serviço</option>
-          {servicos.map(s => (
-            <option key={s.id} value={s.descricao}>{s.descricao}</option>
-          ))}
-        </select>
-
-        <label>Data e Horário:</label>
-        <DateTimePicker
-          onChange={handleDateChange}
-          value={date}
-          format="dd/MM/yyyy HH:mm"
-          className="datetime-picker"
-          required
-        />
-
-        <label>Profissional:</label>
-        <select value={profissional} onChange={(e) => setProfissional(e.target.value)} required>
-          <option value="">Selecione um profissional</option>
-          {profissionais.map(p => (
-            <option key={p.id} value={p.id}>{p.cargo}</option>
-          ))}
-        </select>
-
-        <input type="submit" value="AGENDAR AQUI" />
+        <div className="form-group">
+          <label>Serviço:</label>
+          <select value={selectedServico} onChange={(e) => setSelectedServico(e.target.value)} required>
+            <option value="">Selecione um serviço</option>
+            {servicos.map((servico) => (
+              <option key={servico.id_servico} value={servico.id_servico}>
+                {servico.descricao}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div className="form-group">
+          <label>Funcionário:</label>
+          <select value={selectedFuncionario} onChange={(e) => setSelectedFuncionario(e.target.value)} required>
+            <option value="">Selecione um funcionário</option>
+            {funcionarios.map((funcionario) => (
+              <option key={funcionario.id} value={funcionario.id}>
+                {funcionario.cargo}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div className="form-group">
+          <label>Data:</label>
+          <input type="date" value={data} onChange={(e) => setData(e.target.value)} required />
+        </div>
+        <div className="form-group">
+          <label>Hora:</label>
+          <input type="time" value={hora} onChange={(e) => setHora(e.target.value)} required />
+        </div>
+        <button type="submit">Agendar</button>
       </form>
-      {mensagem && <p>{mensagem}</p>}
     </div>
   );
 }

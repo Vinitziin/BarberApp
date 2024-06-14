@@ -4,12 +4,13 @@ import Login from './components/Login';
 import Cadastro from './components/Cadastro';
 import Agendamento from './components/Agendamento';
 import AdminPanel from './components/AdminPanel';
-import AdminAgendamentos from './components/AdminAgendamentos'; 
+import AdminAgendamentos from './components/AdminAgendamentos';
 import Usuarios from './components/Usuarios';
 import Servicos from './components/Servicos';
-import Funcionario from './components/Funcionario'; // Certifique-se de que o caminho esteja correto
+import Funcionario from './components/Funcionario';
 import Main from './components/Main';
 import PrivateRoute from './components/PrivateRoute';
+import { AuthProvider } from './contexts/AuthContext';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -34,18 +35,20 @@ function App() {
 
   return (
     <Router>
-      <Routes>
-        <Route path="/login" element={<Login onLogin={handleLogin} />} />
-        <Route path="/cadastro" element={<Cadastro />} />
-        <Route path="/agendamento" element={<Agendamento />} />
-        <Route path="/admin" element={isAuthenticated && role === 'admin' ? <AdminPanel /> : <Navigate to="/login" />} />
-        <Route path="/admin/usuarios" element={isAuthenticated && role === 'admin' ? <Usuarios /> : <Navigate to="/login" />} />
-        <Route path="/admin/agendamentos" element={isAuthenticated && role === 'admin' ? <AdminAgendamentos /> : <Navigate to="/login" />} />
-        <Route path="/admin/funcionarios" element={isAuthenticated && role === 'admin' ? <Funcionario /> : <Navigate to="/login" />} />
-        <Route path="/admin/servicos" element={isAuthenticated && role === 'admin' ? <Servicos /> : <Navigate to="/login" />} />
-        <Route path="/" element={<Main />} />
-        <Route path="*" element={<Navigate to="/" />} />
-      </Routes>
+      <AuthProvider>
+        <Routes>
+          <Route path="/login" element={<Login onLogin={handleLogin} />} />
+          <Route path="/cadastro" element={<Cadastro />} />
+          <Route path="/agendamento" element={<PrivateRoute><Agendamento /></PrivateRoute>} />
+          <Route path="/admin" element={<PrivateRoute admin={true}><AdminPanel /></PrivateRoute>} />
+          <Route path="/admin/usuarios" element={<PrivateRoute admin={true}><Usuarios /></PrivateRoute>} />
+          <Route path="/admin/agendamentos" element={<PrivateRoute admin={true}><AdminAgendamentos /></PrivateRoute>} />
+          <Route path="/admin/funcionarios" element={<PrivateRoute admin={true}><Funcionario /></PrivateRoute>} />
+          <Route path="/admin/servicos" element={<PrivateRoute admin={true}><Servicos /></PrivateRoute>} />
+          <Route path="/" element={<Main />} />
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
+      </AuthProvider>
     </Router>
   );
 }

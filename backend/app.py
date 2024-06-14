@@ -8,16 +8,15 @@ from routes.servico_routes import servico_bp
 from routes.agendamento_routes import agendamento_bp
 from auth.auth_routes import auth_bp
 from routes.admin_routes import admin_bp
-from mail_extension import mail
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app)
+
 app.config.from_object(Config)
 
 db.init_app(app)
 migrate = Migrate(app, db)
-mail.init_app(app)
+CORS(app)
 
 app.register_blueprint(usuario_bp, url_prefix='/api')
 app.register_blueprint(funcionario_bp, url_prefix='/api')

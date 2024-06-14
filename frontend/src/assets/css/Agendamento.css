@@ -1,60 +1,60 @@
 .agendamento-container {
-    background-color: #343028;
-    padding: 20px;
-    border-radius: 8px;
-    width: 400px;
-    margin: 0 auto;
-    color: #fff;
-  }
-  
-  .agendamento-container h2 {
-    text-align: center;
-    color: #d4af65;
-  }
-  
-  .agendamento-container form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .agendamento-container label {
-    margin-top: 10px;
-    color: #d4af65;
-  }
-  
-  .agendamento-container select,
-  .agendamento-container input[type="submit"],
-  .react-datetime-picker {
-    margin-top: 5px;
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-    background-color: #5c5242; /* Background color to match the site palette */
-    color: #fff;
-  }
-  
-  .agendamento-container input[type="submit"] {
-    background-color: #d4af65;
-    color: #343028;
-    cursor: pointer;
-    margin-top: 20px;
-  }
-  
-  /* Additional styles for DateTimePicker */
-  .react-datetime-picker__wrapper {
-    background-color: #5c5242;
-    color: #fff;
-    border-radius: 4px;
-  }
-  
-  .react-datetime-picker__inputGroup__input {
-    background-color: #5c5242;
-    color: #fff;
-    border: none;
-  }
-  
-  .react-datetime-picker__clear-button,
-  .react-datetime-picker__calendar-button {
-    color: #fff;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #343028; /* Fundo principal */
+}
+
+.agendamento-container h2 {
+  color: #FFEBC4;
+  margin-bottom: 20px;
+}
+
+form {
+  background-color: #a89060; /* Cor de fundo do formulário */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #fff; /* Cor do texto */
+}
+
+.form-group select,
+.form-group input[type="date"],
+.form-group input[type="time"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  background-color: #4e453e;
+  color: #fff; /* Cor do texto */
+}
+
+button {
+  background-color: #ccaa66; /* Cor do botão */
+  color: #fff; /* Cor do texto do botão */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #b38b50; /* Cor do botão ao passar o mouse */
+}

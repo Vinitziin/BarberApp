@@ -97,48 +97,48 @@ export async function deleteServico(token, id) {
 
 // Adicione outras funções de API conforme necessário
 // endpoints para funcionários
-export const fetchFuncionarios = async (token) => {
-  const response = await fetch('http://localhost:5000/api/funcionarios', {
+export const getFuncionarios = async (token) => {
+  const response = await fetch(`${API_URL}/funcionarios`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
-      'x-access-token': token
-    }
+      'x-access-token': token,
+    },
   });
   return response.json();
 };
 
 export const addFuncionario = async (funcionario, token) => {
-  const response = await fetch('http://localhost:5000/api/funcionario', {
+  const response = await fetch(`${API_URL}/funcionario`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'x-access-token': token
+      'x-access-token': token,
     },
-    body: JSON.stringify(funcionario)
+    body: JSON.stringify(funcionario),
   });
   return response.json();
 };
 
 export const updateFuncionario = async (id, funcionario, token) => {
-  const response = await fetch(`http://localhost:5000/api/funcionario/${id}`, {
+  const response = await fetch(`${API_URL}/funcionario/${id}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
-      'x-access-token': token
+      'x-access-token': token,
     },
-    body: JSON.stringify(funcionario)
+    body: JSON.stringify(funcionario),
   });
   return response.json();
 };
 
 export const deleteFuncionario = async (id, token) => {
-  const response = await fetch(`http://localhost:5000/api/funcionario/${id}`, {
+  const response = await fetch(`${API_URL}/funcionario/${id}`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
-      'x-access-token': token
-    }
+      'x-access-token': token,
+    },
   });
   return response.json();
 };

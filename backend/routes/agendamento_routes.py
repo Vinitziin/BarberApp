@@ -20,7 +20,9 @@ def get_agendamentos(current_user):
             "id_agendamento": agendamento.id_agendamento,
             "id_usuario": agendamento.id_usuario,
             "id_funcionario": agendamento.id_funcionario,
+            "funcionario_nome": agendamento.funcionario.contato, # Add this line
             "id_servico": agendamento.id_servico,
+            "servico_descricao": agendamento.servico.descricao, # Add this line
             "data": agendamento.data.strftime('%Y-%m-%d'),
             "hora": agendamento.hora.strftime('%H:%M:%S')
         } 
@@ -42,9 +44,6 @@ def add_agendamento(current_user):
         )
         db.session.add(new_agendamento)
         db.session.commit()
-
-        user = Usuario.query.get(data['id_usuario'])
-        send_notification(user.email, "Novo Agendamento", "Seu agendamento foi confirmado!")
 
         return jsonify({"message": "Agendamento adicionado com sucesso!"}), 201
     except Exception as e:
