@@ -45,6 +45,17 @@ form {
   color: #fff; /* Cor do texto */
 }
 
+.preco-servico {
+  background-color: #4e453e;
+  color: #fff; /* Cor do texto */
+  padding: 10px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  margin-top: -10px; /* Ajuste para espaço entre elementos */
+  text-align: center;
+  font-size: 18px;
+}
+
 button {
   background-color: #ccaa66; /* Cor do botão */
   color: #fff; /* Cor do texto do botão */
@@ -57,4 +68,10 @@ button {
 
 button:hover {
   background-color: #b38b50; /* Cor do botão ao passar o mouse */
+}
+
+@media (max-width: 768px) {
+  form {
+    width: 90%;
+  }
 }

@@ -1,0 +1,86 @@
+Pré-requisitos
+
+Git instalado
+Python instalado
+Node.js e npm instalados
+
+
+Passos para Windows
+
+Clonar o Repositório
+
+
+git clone <URL_DO_SEU_REPOSITORIO>
+cd <NOME_DO_DIRETORIO_DO_SEU_PROJETO>
+
+Configuração do Backend
+Criar e Ativar o Ambiente Virtual
+
+Abra o Prompt de Comando ou PowerShell com privilégios de administrador e navegue até o diretório do backend:
+
+
+cd backend
+python -m venv venv
+venv\Scripts\activate
+
+Se encontrar problemas de execução, você pode precisar mudar a política de execução do PowerShell:
+
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+
+Instalar Dependências do Backend
+
+Instale as dependências listadas no requirements.txt:
+
+pip install -r requirements.txt
+
+Em config.py 
+
+alterar = mysql+mysqlconnector://<usuario>:<senha>@<host>:<porta>/<nome_do_banco>
+
+Criar o Banco de Dados
+
+Se o banco de dados ainda não estiver criado:
+
+flask db init
+flask db migrate -m "Initial migration."
+flask db upgrade
+
+
+Configuração do Frontend
+Navegar para o Diretório do Frontend
+
+Abra um novo Prompt de Comando ou PowerShell e navegue até o diretório do frontend:
+
+cd ../frontend
+
+npm install
+
+npm start
+
+Passos para Linux
+Clonar o Repositório
+
+git clone <URL_DO_SEU_REPOSITORIO>
+cd <NOME_DO_DIRETORIO_DO_SEU_PROJETO>
+
+
+cd backend
+python3 -m venv venv
+source venv/bin/activate
+
+pip install -r requirements.txt
+
+Configurar o Banco de Dados
+
+em config.py
+mysql+mysqlconnector://<usuario>:<senha>@<host>:<porta>/<nome_do_banco>
+
+
+flask db init
+flask db migrate -m "Initial migration."
+flask db upgrade
+
+flask run
+
+
+para o frontend os passos seguem os mesmos 

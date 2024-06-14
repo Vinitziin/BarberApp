@@ -10,6 +10,7 @@ function Agendamento() {
   const [selectedFuncionario, setSelectedFuncionario] = useState('');
   const [data, setData] = useState('');
   const [hora, setHora] = useState('');
+  const [precoServico, setPrecoServico] = useState('');
 
   const navigate = useNavigate();
 
@@ -23,6 +24,17 @@ function Agendamento() {
     }
     fetchData();
   }, []);
+
+  const handleServicoChange = (e) => {
+    const selectedId = e.target.value;
+    setSelectedServico(selectedId);
+    const selectedService = servicos.find(servico => servico.id_servico === selectedId);
+    if (selectedService) {
+      setPrecoServico(selectedService.preco);
+    } else {
+      setPrecoServico('');
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -57,7 +69,7 @@ function Agendamento() {
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label>Serviço:</label>
-          <select value={selectedServico} onChange={(e) => setSelectedServico(e.target.value)} required>
+          <select value={selectedServico} onChange={handleServicoChange} required>
             <option value="">Selecione um serviço</option>
             {servicos.map((servico) => (
               <option key={servico.id_servico} value={servico.id_servico}>
@@ -66,6 +78,14 @@ function Agendamento() {
             ))}
           </select>
         </div>
+        {precoServico && (
+          <div className="form-group">
+            <label>Preço:</label>
+            <div className="preco-servico">
+              {new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(precoServico)}
+            </div>
+          </div>
+        )}
         <div className="form-group">
           <label>Funcionário:</label>
           <select value={selectedFuncionario} onChange={(e) => setSelectedFuncionario(e.target.value)} required>

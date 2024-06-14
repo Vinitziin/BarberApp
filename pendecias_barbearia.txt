@@ -8,3 +8,8 @@ mudança:
 -ao clicar na logo da barbearia voltar para a tela inicial
 - cria sessão de configurações para usuario e admin
 - adicionar permissões aos funcionários
+
+adm:
+
+admin@example.com
+adminpassword

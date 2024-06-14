@@ -1,15 +1,9 @@
 from flask import Blueprint, request, jsonify
 from models import db, Agendamento, Usuario
-from flask_mail import Message
 from auth.auth_routes import token_required
-from mail_extension import mail
 
 agendamento_bp = Blueprint('agendamento_bp', __name__)
 
-def send_notification(email, subject, body):
-    msg = Message(subject, recipients=[email])
-    msg.body = body
-    mail.send(msg)
 
 @agendamento_bp.route('/agendamentos', methods=['GET'])
 @token_required
@@ -20,9 +14,9 @@ def get_agendamentos(current_user):
             "id_agendamento": agendamento.id_agendamento,
             "id_usuario": agendamento.id_usuario,
             "id_funcionario": agendamento.id_funcionario,
-            "funcionario_nome": agendamento.funcionario.contato, # Add this line
+            "funcionario_nome": agendamento.funcionario.contato, 
             "id_servico": agendamento.id_servico,
-            "servico_descricao": agendamento.servico.descricao, # Add this line
+            "servico_descricao": agendamento.servico.descricao, 
             "data": agendamento.data.strftime('%Y-%m-%d'),
             "hora": agendamento.hora.strftime('%H:%M:%S')
         } 

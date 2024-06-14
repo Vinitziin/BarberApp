@@ -1,3 +1,4 @@
+/* Funcionario.css */
 .funcionario-container {
   max-width: 800px;
   margin: 0 auto;
@@ -43,10 +44,11 @@
 }
 
 .funcionario-item button {
-  margin-left: 10px;
-  padding: 5px;
+  padding: 5px 10px;
   border-radius: 5px;
   border: none;
   background-color: #FFEBC4; /* Cor de fundo do botão */
   color: #343028; /* Cor do texto do botão */
+  width: 100px; /* Ajuste de largura dos botões */
+  margin-left: 5px; /* Espaçamento entre os botões */
 }
