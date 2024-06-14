@@ -1,7 +1,6 @@
-// src/components/AdminAgendamentos.js
-
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import '../assets/css/AdminAgendamentos.css';
 
 const AdminAgendamentos = () => {
@@ -26,10 +25,10 @@ const AdminAgendamentos = () => {
   }, []);
 
   return (
-    <div className="admin-agendamentos">
-      <h1>Agendamentos</h1>
-      <table>
-        <thead>
+    <div className="admin-agendamentos container">
+      <h1 className="text-center mb-4">Agendamentos</h1>
+      <table className="table table-striped table-hover">
+        <thead className="thead-dark">
           <tr>
             <th>ID</th>
             <th>Serviço</th>

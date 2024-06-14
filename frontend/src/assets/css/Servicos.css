@@ -1,72 +1,99 @@
 body {
-  background-color: #343028;
+  background-color: #2e2b27;
   color: #f8f8f8;
   margin: 0;
   font-family: Arial, sans-serif;
 }
 
 .servicos-container {
-  margin: 20px;
-  color: #f8f8f8;
-  background-color: #343028;
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #3b372f;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .servicos-container h2 {
   color: #e3c186;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
 }
 
 .servicos-container form {
   display: flex;
   flex-direction: column;
+  gap: 10px;
   margin-bottom: 20px;
 }
 
-.servicos-container form input,
-.servicos-container form button {
-  margin: 5px 0;
+.servicos-container form input {
   padding: 10px;
-  font-size: 16px;
+  border-radius: 5px;
   border: 1px solid #e3c186;
-  background-color: #443a2f;
+  background-color: #4b443d;
   color: #e3c186;
 }
 
 .servicos-container form button {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
   background-color: #e3c186;
-  color: #343028;
+  color: #2e2b27;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .servicos-container form button:hover {
   background-color: #d1b075;
 }
 
-.servicos-container ul {
-  list-style-type: none;
-  padding: 0;
+.servicos-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.servicos-container ul li {
-  background-color: #443a2f;
-  border: 1px solid #e3c186;
-  padding: 10px;
-  margin-bottom: 10px;
+.servico-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: #f8f8f8;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #4b443d;
+  border: 1px solid #e3c186;
 }
 
-.servicos-container ul li button {
-  margin-left: 10px;
+.servico-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.servico-item button {
   padding: 5px 10px;
   font-size: 14px;
-  background-color: #e3c186;
-  color: #343028;
-  border: 1px solid #e3c186;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.servicos-container ul li button:hover {
+.servico-item .btn-edit {
+  background-color: #e3c186;
+  color: #2e2b27;
+}
+
+.servico-item .btn-delete {
+  background-color: #d9534f;
+  color: #ffffff;
+}
+
+.servico-item .btn-edit:hover {
   background-color: #d1b075;
+}
+
+.servico-item .btn-delete:hover {
+  background-color: #c9302c;
 }

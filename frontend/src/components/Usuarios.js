@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import '../assets/css/Usuarios.css';
 
 const Usuarios = () => {
@@ -8,7 +9,7 @@ const Usuarios = () => {
   useEffect(() => {
     axios.get('http://localhost:5000/api/usuarios')
       .then(response => {
-        console.log('API response:', response.data); // Adicione este console.log para verificar os dados recebidos
+        console.log('API response:', response.data);
         setUsuarios(response.data);
       })
       .catch(error => {
@@ -17,10 +18,10 @@ const Usuarios = () => {
   }, []);
 
   return (
-    <div className="usuarios-container">
-      <h1>Gerenciamento de Usuários</h1>
-      <table className="usuarios-table">
-        <thead>
+    <div className="usuarios-container container">
+      <h1 className="text-center mb-4">Gerenciamento de Usuários</h1>
+      <table className="usuarios-table table table-striped table-hover">
+        <thead className="thead-dark">
           <tr>
             <th>ID</th>
             <th>Nome</th>

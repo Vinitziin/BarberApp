@@ -24,35 +24,35 @@ const AdminPanel = () => {
             <h2>Usuários</h2>
             <p>Gerencie os usuários cadastrados na plataforma.</p>
             <Link to="/admin/usuarios">
-              <button>Ver Usuários</button>
+              <button className="btn">Ver Usuários</button>
             </Link>
           </div>
           <div className="admin-section">
             <h2>Agendamentos</h2>
             <p>Gerencie os agendamentos realizados.</p>
             <Link to="/admin/agendamentos">
-              <button>Ver Agendamentos</button>
+              <button className="btn">Ver Agendamentos</button>
             </Link>
           </div>
           <div className="admin-section">
             <h2>Serviços</h2>
             <p>Gerencie os serviços oferecidos.</p>
             <Link to="/admin/servicos">
-              <button>Ver Serviços</button>
+              <button className="btn">Ver Serviços</button>
             </Link>
           </div>
           <div className="admin-section">
             <h2>Colaboradores</h2>
             <p>Gerencie os colaboradores da barbearia.</p>
             <Link to="/admin/funcionarios">
-              <button>Ver Colaboradores</button>
+              <button className="btn">Ver Colaboradores</button>
             </Link>
           </div>
           <div className="admin-section">
             <h2>Galeria</h2>
             <p>Gerencie as imagens da galeria.</p>
             <Link to="/admin/galeria">
-              <button>Ver Galeria</button>
+              <button className="btn">Ver Galeria</button>
             </Link>
           </div>
         </div>

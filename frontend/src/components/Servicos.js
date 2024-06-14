@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import '../assets/css//Servicos.css';  // Certifique-se de que o caminho está correto
+import '../assets/css/Servicos.css';
 
 const Servicos = () => {
   const [servicos, setServicos] = useState([]);
@@ -87,6 +87,13 @@ const Servicos = () => {
     setDuracao(servico.duracao);
   };
 
+  const formatCurrency = (value) => {
+    return new Intl.NumberFormat('pt-BR', {
+      style: 'currency',
+      currency: 'BRL'
+    }).format(value);
+  };
+
   return (
     <div className="servicos-container">
       <h2>Gerenciar Serviços</h2>
@@ -107,24 +114,24 @@ const Servicos = () => {
         />
         <input
           type="text"
-          placeholder="Duração"
+          placeholder="Duração (hh:mm:ss)"
           value={duracao}
           onChange={(e) => setDuracao(e.target.value)}
           required
         />
-        <button type="submit">{editing ? 'Atualizar' : 'Adicionar'} Serviço</button>
+        <button type="submit" className="btn">{editing ? 'Atualizar' : 'Adicionar'} Serviço</button>
       </form>
-      <ul>
+      <div className="servicos-list">
         {servicos.map((servico) => (
-          <li key={servico.id_servico}>
-            {servico.descricao} - {servico.preco} - {servico.duracao}
-            <div>
-              <button onClick={() => editServico(servico)}>Editar</button>
-              <button onClick={() => deleteServico(servico.id_servico)}>Deletar</button>
+          <div key={servico.id_servico} className="servico-item">
+            <span>{servico.descricao} - {formatCurrency(servico.preco)} - {servico.duracao}</span>
+            <div className="servico-buttons">
+              <button onClick={() => editServico(servico)} className="btn btn-edit">Editar</button>
+              <button onClick={() => deleteServico(servico.id_servico)} className="btn btn-delete">Deletar</button>
             </div>
-          </li>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };

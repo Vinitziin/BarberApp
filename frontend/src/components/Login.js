@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { login } from '../api';
 import { useAuth } from '../contexts/AuthContext';
-import '../assets/css/Login.css';
 import logo from '../assets/images/logo.png';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../assets/css/Login.css';
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -45,33 +46,35 @@ function Login() {
   };
 
   return (
-    <div className="login-container">
-      <div className="login-logo">
-        <img src={logo} alt="Logo Barbearia Laguna" />
+    <div className="login-container d-flex flex-column align-items-center justify-content-center vh-100">
+      <div className="login-logo mb-4">
+        <img src={logo} alt="Logo Barbearia Laguna" className="img-fluid" />
       </div>
-      <form onSubmit={handleSubmit} className="login-form">
-        <h2>LOGIN</h2>
-        <div className="form-group">
-          <label>Email:</label>
+      <form onSubmit={handleSubmit} className="login-form bg-light p-4 rounded shadow text-center w-100" style={{ maxWidth: '400px' }}>
+        <h2 className="mb-4">LOGIN</h2>
+        <div className="form-group mb-3">
+          <label htmlFor="email" className="form-label">Email:</label>
           <input
             type="email"
+            id="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="form-input"
+            className="form-control"
             placeholder="Email"
           />
         </div>
-        <div className="form-group">
-          <label>Senha:</label>
+        <div className="form-group mb-3">
+          <label htmlFor="senha" className="form-label">Senha:</label>
           <input
             type="password"
+            id="senha"
             value={senha}
             onChange={(e) => setSenha(e.target.value)}
-            className="form-input"
+            className="form-control"
             placeholder="Senha"
           />
         </div>
-        <div className="form-group form-check">
+        <div className="form-check mb-3 text-start">
           <input
             type="checkbox"
             className="form-check-input"
@@ -83,10 +86,10 @@ function Login() {
             Lembrar senha?
           </label>
         </div>
-        <button type="submit" className="btn-login">
+        <button type="submit" className="btn btn-primary w-100">
           Login
         </button>
-        <p className="signup-link">
+        <p className="signup-link mt-3">
           Não tem conta? <a href="/cadastro">Cadastrar</a>
         </p>
       </form>

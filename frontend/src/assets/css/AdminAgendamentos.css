@@ -1,38 +1,28 @@
+/* AdminAgendamentos.css */
 .admin-agendamentos {
-    padding: 20px;
-    background-color: #4e453e; /* Cor de fundo */
-    color: #fff;
-  }
-  
-  .admin-agendamentos h1 {
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 32px;
-    color: #e2c893;
-  }
-  
-  .admin-agendamentos table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  .admin-agendamentos th,
-  .admin-agendamentos td {
-    padding: 12px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .admin-agendamentos th {
-    background-color: #6b5e50;
-    color: #e2c893;
-  }
-  
-  .admin-agendamentos tr:nth-child(even) {
-    background-color: #333;
-  }
-  
-  .admin-agendamentos tr:hover {
-    background-color: #57524b;
-  }
-  
+  padding: 20px;
+  background-color: #343028; /* Cor de fundo */
+  color: #f4f4f4; /* Cor do texto */
+}
+
+.admin-agendamentos h1 {
+  color: #e0c385; /* Cor do título */
+}
+
+.table th {
+  background-color: #6b5e50; /* Cor do cabeçalho da tabela */
+  color: #e2c893; /* Cor do texto do cabeçalho */
+}
+
+.table td {
+  background-color: #3e3830; /* Cor das células */
+  color: #e2c893; /* Cor do texto das células */
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: #4f4a3d; /* Cor das linhas pares */
+}
+
+.table-hover tbody tr:hover {
+  background-color: #57524b; /* Cor das linhas ao passar o mouse */
+}
